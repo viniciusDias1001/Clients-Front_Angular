@@ -5,12 +5,14 @@ import { CommonModule } from '@angular/common';
 import { ClientesRoutingModule } from './clientes-routing.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ClientesListaComponent } from './clientes-lista/clientes-lista.component';
 
 
 
 @NgModule({
   declarations: [
-    ClientesformsComponent
+    ClientesformsComponent,
+    ClientesListaComponent
   ],
   imports: [
     CommonModule,
@@ -21,6 +23,7 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [
     ClientesformsComponent,
+    ClientesListaComponent
 
   ]
 })
