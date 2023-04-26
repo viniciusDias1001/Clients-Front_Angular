@@ -24,10 +24,8 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+            "styles": [ "node_modules/bootstrap/dist/css/bootstrap.css", "src/styles.css" ],
+            "scripts": [ "node_modules/jquery/dist/jquery.slim.js", "node_modules/popper.js/dist/umd/popper.js", "node_modules/bootstrap/dist/js/bootstrap.js" ]
           },
           "configurations": {
             "production": {
@@ -94,5 +92,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "332b4e35-db0e-4593-8d0d-77e87afe6937"
   }
 }

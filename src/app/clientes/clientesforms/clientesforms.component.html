@@ -1,0 +1,72 @@
+<h1 class="mt-4">Cadastro de Clientes</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Preencha as informações pedidas abaixo</li>
+</ol>
+<div class="container">
+
+
+
+  <form #clienteform="ngForm" (ngSubmit)="onSubmit()">
+
+    <div class="row">
+      <div class='col-md-12'>
+        <div class="alert alert-success d-flex align-items-center" role="alert" *ngIf="success == true">
+          <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+          <div>
+          Cliente salvo com sucesso
+          </div>
+        </div>
+
+        <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
+                {{erro}}
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row" *ngIf="cliente.id">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>ID: </label>
+          <input type="text" class="form-control" disabled="true" style="border-radius: 8px;
+          box-shadow: 2px 2px 2px rgb(19, 18, 18);" [ngModel]="cliente.id" name="id">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Data Cadastro: </label >
+          <input type="text" class="form-control" disabled="true" style="border-radius: 8px;
+          box-shadow: 2px 2px 2px rgb(19, 18, 18);"  [ngModel]="cliente.dataCadastro" name="dataCadastro">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Nome: * </label>
+          <input type="text" class="form-control" style="border-radius: 8px;" [(ngModel)]="cliente.nome" name="nome">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>CPF:* </label>
+          <input type="text" class="form-control" style="border-radius: 8px;" [(ngModel)]="cliente.cpf" name="cpf">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-success" >
+          <i class="fa fa-save"></i> Salvar
+        </button>
+      </div>
+    </div>
+
+  </form>
+
+
