@@ -4,6 +4,23 @@
 </ol>
 
 <div class="container">
+
+  <div class="row">
+    <div class='col-md-12'>
+      <div class="alert alert-success d-flex align-items-center" role="alert" *ngIf="mensagemS">
+        <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+        <div>
+        {{mensagemS}}
+        </div>
+      </div>
+
+      <div class="alert alert-danger" role="alert" *ngFor="MensagemN">
+              {{mensagemN}}
+      </div>
+
+    </div>
+  </div>
+
         <div class = "row">
               <div class="col-md-2">
                 <button class="btn btn-warning" (click)="novoCadastro()"><i class="fa fa-plus"></i> Novo Cliente</button>
@@ -19,7 +36,7 @@
                   <th>DATA CADASTRO</th>
                   <th>NOME</th>
                   <th>CPF</th>
-                  <th></th>
+
                 </tr>
                </thead>
                <tbody>
@@ -33,9 +50,52 @@
                       <i class="fa fa-edit"></i>
                     </button>
                   </td>
+                  <td>
+                    <button  class="btn btn-danger"  data-toggle="modal" data-target="#modalDelecao" (click)="preparaDelecao(cliente)">
+                      <i class=" fa fa-trash"></i>
+                    </button>
+                  </td>
                 </tr>
                </tbody>
             </table>
           </div>
+    </div>
+
+    <div id="modalDelecao" class="modal fade" role="dialog"  *ngIf="clienteSelecionado">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>Confimação</h4>
+          </div>
+          <div class="modal-body" *ngIf="clienteSelecionado" style="margin-left: 10px;">
+           Deseja remover {{clienteSelecionado.nome}} ?
+           <br>
+           CPF: {{clienteSelecionado.cpf}}
+          </div>
+
+          <div class="modal-footer">
+            <button (click)="deletar()" class="btn-confirm" data-dismiss="modal" style="  background-color: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;" ><i class="fas fa-check" style=" margin-right: 10px;" >
+            </i> Confirmar
+          </button>
+
+
+          <button (click)="cancelar()" data-dismiss="modal" class="btn-defaut" style="background-color: red;
+          color: white;
+          padding: 10px;
+          border: none;
+          border-radius: 5px;
+          font-size: 16px;
+          cursor: pointer;"><i class="fas fa-times"></i> Cancelar</button>
+
+
+          </div>
+        </div>
+
+      </div>
     </div>
 </div>
