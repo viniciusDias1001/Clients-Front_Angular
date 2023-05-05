@@ -10203,3 +10203,62 @@ body {
   background-color: #e9ecef;
 }
 
+.custom-select1 {
+  display: block;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #444;
+  padding: 5px 20px 5px 10px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  background-image: url('https://cdn.iconscout.com/icon/free/png-256/dropdown-arrow-1768695-1502435.png');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-select1:hover {
+  background-color: #f9f9f9;
+}
+
+.custom-select1:active {
+  background-color: #f2f2f2;
+}
+
+.custom-select1:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.custom-breadcrumb {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-group-addon {
+  font-size: 18px;
+  font-weight: 600;
+  color: #555;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-right: -1px;
+  width: 80px;
+  text-align: center;
+}
+
+.input-group-addon::before {
+  content: '';
+}
+

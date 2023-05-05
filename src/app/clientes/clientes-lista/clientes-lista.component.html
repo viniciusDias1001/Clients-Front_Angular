@@ -1,5 +1,5 @@
 <h1 class="mt-4">Clientes</h1>
-<ol class="breadcrumb mb-4">
+<ol class="breadcrumb mb-4 custom-breadcrumb">
     <li class="breadcrumb-item active">Consulta</li>
 </ol>
 
@@ -14,8 +14,10 @@
         </div>
       </div>
 
-      <div class="alert alert-danger" role="alert" *ngFor="MensagemN">
-              {{mensagemN}}
+      <div class="alert alert-danger" role="alert" *ngFor=" let MensagemN">
+        <div>
+          {{mensagemN}}
+          </div>
       </div>
 
     </div>

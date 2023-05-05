@@ -17,7 +17,7 @@ export class ClientesformsComponent implements OnInit{
   success: boolean = false;
    errors: String[];
    id : number;
-   
+
 
 
 
@@ -41,8 +41,12 @@ export class ClientesformsComponent implements OnInit{
   }
 
   onSubmit() {
+
+    console.log(this.cliente);
     if(this.id){
       this.service.atualizarCliente(this.cliente).subscribe(resposta=>{
+
+
              this.success = true;
             this.errors = null;
 

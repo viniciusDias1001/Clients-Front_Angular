@@ -1,5 +1,5 @@
 <h1 class="mt-4">Cadastro de Clientes</h1>
-<ol class="breadcrumb mb-4">
+<ol class="breadcrumb mb-4  custom-breadcrumb" >
     <li class="breadcrumb-item active">{{cliente.id ? 'Atualize Cliente' : "Preencha as informações pedidas abaixo para se cadastrar"}}</li>
 </ol>
 <div class="container">
@@ -8,20 +8,16 @@
 
   <form #clienteform="ngForm" (ngSubmit)="onSubmit()">
 
-    <div class="row">
-      <div class='col-md-12' >
-        <div class="alert alert-success d-flex align-items-center" role="alert" *ngIf="success == true">
-          <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-          <div>
-          Cliente salvo/atualizado com sucesso
-          </div>
-        </div>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="success">
 
-        <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
-                {{erro}}
-        </div>
+      <span> Cliente salvo/atualizado com sucesso</span>
+      <svg viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"  width="1.5em">
+        <path fill-rule="evenodd" d="M8 16A8 8 0 108 0a8 8 0 000 16zM4.14 8.032a.5.5 0 01.658-.76l2.833 2.5 5.285-5.01a.5.5 0 01.658.76l-5.643 5.333a.5.5 0 01-.657 0L4.14 8.032z"/>
+      </svg>
+    </div>
 
-      </div>
+    <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
+      {{erro}}
     </div>
 
     <div class="row" *ngIf="cliente.id">

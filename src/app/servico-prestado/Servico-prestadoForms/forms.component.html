@@ -1,1 +1,111 @@
+<h1 class="mt-4">Serviço</h1>
+<ol class="breadcrumb mb-4 custom-breadcrumb">
+    <li class="breadcrumb-item active">cadastre seu Serviço</li>
+</ol>
 
+<div class="container">
+      <form #form= "ngForm" (submit)="onSubmit()">
+
+
+        <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="success">
+          <svg viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"  width="1.5em">
+            <path fill-rule="evenodd" d="M8 16A8 8 0 108 0a8 8 0 000 16zM4.14 8.032a.5.5 0 01.658-.76l2.833 2.5 5.285-5.01a.5.5 0 01.658.76l-5.643 5.333a.5.5 0 01-.657 0L4.14 8.032z"/>
+          </svg>
+          <span>    Serviço salvo/atualizado com sucesso</span>
+
+        </div>
+
+
+        <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
+          {{erro}}
+        </div>
+
+
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label >
+                      <h6>Cliente:</h6>
+                    </label>
+                    <select  class="custom-select1"  [ngModelOptions]="{standalone:true}"       [(ngModel)]="servico.idCliente">
+                      <option value="" style="color: gray; font-style: italic; font-weight: bold; ">
+                        &#8226;&#8226;&#8226; Selecione... &#8226;&#8226;&#8226;
+                    </option>
+
+                        <option *ngFor="let cliente of clientes " [ngValue]="cliente.id">
+                                {{cliente.nome}}
+                        </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row"  *ngIf="servico.idCliente">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label >
+                      <h6>Descrição: </h6>
+                    </label>
+                    <br>
+                        <input class="form-control" type="text" style="box-sizing: border-box;
+                        border: 2px solid #ccc;
+                        border-radius: 30px; " [(ngModel)]="servico.descricao" name="descricao">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row" *ngIf="servico.idCliente">
+
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label for="data" ><h6>Digite a Data:</h6></label>
+                    <br>
+                    <input type="text"  style="box-sizing: border-box;
+                    border: 2px solid #ccc;
+                    border-radius: 10px;"  [(ngModel)]="servico.data" name="data">
+                  </div>
+                </div>
+
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label ><h6>Digite o valor:</h6></label>
+                    <br>
+                      <span class="input-group-addon" style="margin-right: 7px; box-sizing: border-box;
+                      border: 2px solid #ccc;
+                      border-radius: 10px;">R$:</span>
+                      <input type="number" style="box-sizing: border-box;
+                      border: 2px solid #ccc;
+                      border-radius: 10px;" step="0.01" [(ngModel)]="servico.preco" name="valor">
+                  </div>
+                </div>
+
+
+              </div>
+
+              <div class="row">
+                
+                <div class="col-md-1">
+                  <button   data-toggle="modal" data-target="#modalsalva" type="submit" class="btn btn-success">  <i class="fa fa-save"></i> Salvar</button>
+                </div>
+
+                <div class="col-md-1">
+                  <button type="button" routerLink="/servico-prestado-list" class="btn btn-sm btn-danger">
+                    <i class="fas fa-arrow-alt-circle-left"></i> Voltar
+                  </button>
+                </div>
+
+
+
+
+              </div>
+
+
+
+
+      </form>
+
+
+</div>

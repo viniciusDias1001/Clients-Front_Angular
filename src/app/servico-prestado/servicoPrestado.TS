@@ -1,8 +1,7 @@
-import { Cliente } from './../clientes/clientes';
-export class servicoPrestado{
-  id: number;
+
+export class ServicoPrestado{
   descricao: String;
-  cliente: Cliente;
-  valor: String;
-  data: String;
+  preco: String;
+   data: String;
+  idCliente:Number;
 }

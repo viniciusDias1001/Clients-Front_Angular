@@ -1,1 +1,96 @@
-<p>servico-prestado-list works!</p>
+<h1 class="mt-4">Serviços</h1>
+<ol class="breadcrumb mb-4 custom-breadcrumb">
+    <li class="breadcrumb-item active">Busca de Serviços</li>
+</ol>
+
+
+<div class="container">
+  <form #form= "ngForm" (submit)="onSubmit()">
+
+    <div class = "row">
+      <div class="col-md-2">
+        <button class="btn btn-warning" routerLink="/servico-prestado-form"><i class="fa fa-plus"></i> Novo Serviço</button>
+      </div>
+</div>
+
+<br>
+    <div class="row">
+      <div class="col-md-4">
+      <div class="form-group">
+        <label >
+          <h6>Nome do Cliente: </h6>
+        </label>
+        <br>
+            <input class="form-control" type="text" style="box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 30px; " [(ngModel)]="nome" name="nome">
+      </div>
+</div>
+
+      <div class="form-group">
+        <label >
+          <h6>Mês: </h6>
+        </label>
+        <select  class="form-control"  [(ngModel)]="mes"   [ngModelOptions]="{standalone:true}"  style="box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 30px; ">
+          <option value="" style="color: gray; font-style: italic; font-weight: bold; ">
+            &#8226;&#8226;&#8226; Selecione... &#8226;&#8226;&#8226;
+          </option>
+            <option *ngFor="let mes of meses " [ngValue]="mes">
+                    {{mes}}
+            </option>
+        </select>
+
+      </div>
+
+    </div>
+
+
+
+
+    <div class="row">
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary btn-sm rounded-pill">
+          <i class="fa fa-search"></i> Buscar
+        </button>
+      </div>
+    </div>
+
+    <br>
+
+
+
+    <div class="row">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="menssagem">
+
+        <span> {{menssagem}}</span>
+
+      </div>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Descrição</th>
+              <th>Preço</th>
+              <th>Data</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor=" let s of lista">
+              <td>{{s.cliente.nome}}</td>
+              <td>{{s.descricao}}</td>
+              <td>R$: {{s.valor}}.00</td>
+              <td>{{s.data}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+  </form>
+</div>
+

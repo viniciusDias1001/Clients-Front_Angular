@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ServicoPrestadoRoutingModule } from './servico-prestado-routing.module';
 import { FormsComponent } from './Servico-prestadoForms/forms.component';
 import { ServicoPrestadoListComponent } from './servico-prestado-list/servico-prestado-list.component';
