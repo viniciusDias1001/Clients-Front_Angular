@@ -1,0 +1,76 @@
+<body id="bodylogin">
+
+
+<div id="layoutAuthentication">
+  <div id="layoutAuthentication_content">
+    <main>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div  id="containerMeio"class="col-lg-5">
+            <div id="ct" class="card shadow-lg border-0 rounded-lg mt-5">
+              <div class="card-headr">
+                <h3 class="text-center font-weight-bold my-4 text-uppercase" style="color: #000000;">
+                  {{cadastrando ? "Cadastrar" : "Entrar"}}
+                </h3>
+
+              </div>
+              <hr style="border-bottom: 1px solid black;">
+              <div class="card-body">
+                <div class="alert alert-danger " *ngIf="errologin == true">
+                  Login e/ou senha incorreto(a).
+                </div>
+
+                <form #loginForm="ngForm" (submit)=" onSubmmit()">
+                  <div class="form-group">
+                    <label class="small mb-1"><h2 style="font-size: 2em; color: #000000; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em;">Login</h2>
+                    </label>
+                    <input type="text" name="username" [(ngModel)]="username" class="form-control py-4" placeholder="User Name" style="background-color: #f2f2f2;
+                    border-color: #000000;
+                    border-radius: 10px;
+                    font-size: 16px;
+                    padding: 15px;
+                    margin-bottom: 20px;
+                    color: #000000;">
+
+                  </div>
+                  <div class="form-group">
+                    <label class="small mb-1"><h2 style="font-size: 2em; color: #000000; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em;">Senha</h2>
+                    </label>
+                    <input type="password" name="senha" [(ngModel)]="senha" class="form-control py-4" placeholder="Digite sua senha" style="background-color: #f2f2f2;
+                    border: none;
+                    border-radius: 10px;
+                    font-size: 16px;
+                    padding: 15px;
+                    margin-bottom: 20px;
+                    color: #333;">
+                  </div>
+
+                  <hr style="border-bottom: 1px solid black;">
+
+                  <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                    <button type="submit" class="btn btn-primary" *ngIf="!cadastrando" style="  background-color: #333;
+                    border-color: #eeebeb;">Entrar</button>
+
+                    <button type="button" class="btn btn-success" *ngIf="cadastrando == true " style=" background-color: #333">Cadastrar</button>
+
+                    <button type="button" class="btn btn-danger" *ngIf="cadastrando == true" (click)="cancelaCadastro()" >Voltar</button>
+                  </div>
+
+
+                </form>
+
+              </div>
+
+              <div class="card-footer text-center">
+                <div class="small"><a href="#" (click)="preparaCadastrar($event)" style="font-style: oblique; color: black; font-weight: bold;" *ngIf="!cadastrando">
+                  Não possui Usario? Cadastre-se
+                </a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+</body>

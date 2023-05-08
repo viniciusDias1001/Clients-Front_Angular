@@ -27,7 +27,7 @@ export class ClientesListaComponent implements OnInit{
   }
 
   novoCadastro(){
-    this.router.navigate(["/clientes-forms"])
+    this.router.navigate(["/clientes/forms"])
   }
 
 
@@ -43,7 +43,7 @@ export class ClientesListaComponent implements OnInit{
   }
 
   cancelar(){
-    this.router.navigate(["/clientes-lista"])
+    this.router.navigate(["/clientes/lista"])
   }
 
 }
