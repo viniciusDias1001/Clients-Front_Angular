@@ -16,15 +16,24 @@
               </div>
               <hr style="border-bottom: 1px solid black;">
               <div class="card-body">
-                <div class="alert alert-danger " *ngIf="errologin == true">
-                  Login e/ou senha incorreto(a).
+                <div class="alert alert-danger " *ngFor="let erro of errors ">
+                  {{erro}}
                 </div>
+
+                <div class="alert alert-success fade show" role="alert" *ngIf="success">
+                  <span>Usuário cadastrado com sucesso. Faça agora o login </span>
+                  <svg viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="1.5em">
+                    <path fill-rule="evenodd" d="M8 16A8 8 0 108 0a8 8 0 000 16zM4.14 8.032a.5.5 0 01.658-.76l2.833 2.5 5.285-5.01a.5.5 0 01.658.76l-5.643 5.333a.5.5 0 01-.657 0L4.14 8.032z"/>
+                  </svg>
+                </div>
+
+
 
                 <form #loginForm="ngForm" (submit)=" onSubmmit()">
                   <div class="form-group">
                     <label class="small mb-1"><h2 style="font-size: 2em; color: #000000; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em;">Login</h2>
                     </label>
-                    <input type="text" name="username" [(ngModel)]="username" class="form-control py-4" placeholder="User Name" style="background-color: #f2f2f2;
+                    <input type="text" name="username" [(ngModel)]="usuario.username" autocomplete="off" class="form-control py-4" placeholder="User Name" style="background-color: #f2f2f2;
                     border-color: #000000;
                     border-radius: 10px;
                     font-size: 16px;
@@ -36,7 +45,7 @@
                   <div class="form-group">
                     <label class="small mb-1"><h2 style="font-size: 2em; color: #000000; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em;">Senha</h2>
                     </label>
-                    <input type="password" name="senha" [(ngModel)]="senha" class="form-control py-4" placeholder="Digite sua senha" style="background-color: #f2f2f2;
+                    <input type="password" name="senha" [(ngModel)]="usuario.senha" class="form-control py-4" placeholder="Digite sua senha" style="background-color: #f2f2f2;
                     border: none;
                     border-radius: 10px;
                     font-size: 16px;
@@ -51,7 +60,7 @@
                     <button type="submit" class="btn btn-primary" *ngIf="!cadastrando" style="  background-color: #333;
                     border-color: #eeebeb;">Entrar</button>
 
-                    <button type="button" class="btn btn-success" *ngIf="cadastrando == true " style=" background-color: #333">Cadastrar</button>
+                    <button type="button" class="btn btn-success" *ngIf="cadastrando == true " style=" background-color: #333" (click)="cadastrar()">Cadastrar</button>
 
                     <button type="button" class="btn btn-danger" *ngIf="cadastrando == true" (click)="cancelaCadastro()" >Voltar</button>
                   </div>
@@ -62,7 +71,7 @@
               </div>
 
               <div class="card-footer text-center">
-                <div class="small"><a href="#" (click)="preparaCadastrar($event)" style="font-style: oblique; color: black; font-weight: bold;" *ngIf="!cadastrando">
+                <div class="small"><a href="#" (click)="preparaCadastrar($event)" style="font-style: oblique; color: black; font-weight: bold;" >
                   Não possui Usario? Cadastre-se
                 </a></div>
               </div>
