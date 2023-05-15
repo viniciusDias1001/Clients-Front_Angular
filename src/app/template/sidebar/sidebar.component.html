@@ -22,12 +22,18 @@
                Serviço Prestado
                 </a>
 
+                <div class="sb-sidenav-menu-heading">Logout</div>
+                <a class="nav-link collapsed" (click)="sair()"  href="#"    data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
+                ><div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
+                Sair do Sistema
+               </a>
+
 
 
 
       <div class="sb-sidenav-footer">
-          <div class="small">WebSite Clientes</div>
-          Create for Pedro
+          <div class="small">Cliente Logado</div>
+          {{usuarioLogado}}
       </div>
 
 </div>

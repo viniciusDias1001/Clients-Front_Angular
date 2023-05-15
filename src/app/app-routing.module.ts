@@ -3,17 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
-import { ClientesListaComponent } from './clientes/clientes-lista/clientes-lista.component';
-import { ClientesformsComponent } from './clientes/clientesforms/clientesforms.component';
-import { ServicoPrestadoListComponent } from './servico-prestado/servico-prestado-list/servico-prestado-list.component';
-import { FormsComponent } from './servico-prestado/Servico-prestadoForms/forms.component';
+import { AuthGuard } from './auth.guard';
+
 
 
 const routes: Routes = [
   {path : "login", component : LoginComponent},
   {path: "" , component : LayoutComponent, children: [
-     { path : "home", component : HomeComponent},
-  ]}
+     { path : "home", component : HomeComponent, canActivate : [AuthGuard]},
+  ], canActivate : [AuthGuard]}
 
 ];
 

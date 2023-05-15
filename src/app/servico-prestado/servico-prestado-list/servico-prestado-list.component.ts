@@ -19,7 +19,7 @@ export class ServicoPrestadoListComponent implements OnInit {
   router: Router;
   constructor(private servicoPrestadoService: ServicoPrestadoService){
 
-    this.meses = [1,2,3,4,5,6,7,8,9, 10,11]
+    this.meses = [1,2,3,4,5,6,7,8,9, 10,11,12]
   }
 
   ngOnInit() {
